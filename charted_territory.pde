@@ -184,7 +184,7 @@ void setup()
 {
   size(1000, 1000, P3D);
   ortho();
-  frameRate(2);
+  frameRate(15);
   stroke(lncolor,100);
 }
 
