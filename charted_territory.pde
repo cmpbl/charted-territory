@@ -53,7 +53,7 @@
 
 float theta = 0;
 int map_offset = 100;
-int bg = 252;
+int bg = 255;
 int lncolor = 0;
 
 // origin
@@ -318,7 +318,7 @@ void draw() {
       
       // plot resulting coordinate-value for chunk
       if (prior_C_value > 0 || value > 0) {
-        fill(252);
+        fill(255);
         beginShape();
         plotCoord(prior_C_lat, prior_C_lon, 0); 
         plotCoord(prior_C_lat, prior_C_lon, prior_C_value); 
