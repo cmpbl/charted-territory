@@ -102,9 +102,9 @@ ArrayList<Datapoint> loadData() {
 
 // -- BASEMAP --
 
-Table csv;
+Table basemap;
 
-void drawMap(Table csv){ 
+void drawMap(Table basemap){ 
   // Draw the basemap from an appropriately structured CSV form `segment_id|lat|lon`
 
   stroke(lncolor,100);
@@ -112,8 +112,8 @@ void drawMap(Table csv){
   int currSeg = -1;
   
   // iterate through coordinate pairs, separating individual segments
-  for (int i = 0; i < csv.getRowCount(); i++) {
-    TableRow row = csv.getRow(i);
+  for (int i = 0; i < basemap.getRowCount(); i++) {
+    TableRow row = basemap.getRow(i);
     
     int seg = row.getInt("segment_id");
     float lat = row.getFloat("lat");
@@ -187,7 +187,7 @@ void setup()
   frameRate(15);
   stroke(lncolor,100);
   
-  csv = loadTable("nyc_outline.csv", "header");
+  basemap = loadTable("nyc_outline.csv", "header");
 }
 
 float prior_C_value = 0;
@@ -214,7 +214,7 @@ void draw() {
   // clear between frames and redraw base map
   background(bg);
   noFill();
-  drawMap(csv);
+  drawMap(basemap);
  
   // initialize variables
   float lat;
