@@ -102,10 +102,10 @@ ArrayList<Datapoint> loadData() {
 
 // -- BASEMAP --
 
-void drawMap(){ 
+Table csv;
+
+void drawMap(Table csv){ 
   // Draw the basemap from an appropriately structured CSV form `segment_id|lat|lon`
-  
-  Table csv = loadTable("nyc_outline.csv", "header");
 
   stroke(lncolor,100);
   
@@ -186,6 +186,8 @@ void setup()
   ortho();
   frameRate(15);
   stroke(lncolor,100);
+  
+  csv = loadTable("nyc_outline.csv", "header");
 }
 
 float prior_C_value = 0;
@@ -212,7 +214,7 @@ void draw() {
   // clear between frames and redraw base map
   background(bg);
   noFill();
-  drawMap();
+  drawMap(csv);
  
   // initialize variables
   float lat;
